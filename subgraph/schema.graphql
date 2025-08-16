@@ -1,0 +1,34 @@
+type Wallet @entity {
+  id: ID!                     # wallet address (lowercased hex)
+  latestScore: Int
+  latestAttestation: Attestation
+  attestationCount: Int!
+  createdAt: BigInt
+}
+
+type Attestation @entity {
+  id: ID!                     # txHash + logIndex or unique id
+  wallet: Wallet!
+  attestor: Bytes!
+  featuresHash: Bytes!
+  score: Int!
+  metadata: String
+  timestamp: BigInt!
+  txHash: Bytes!
+}
+
+type FeatureManifest @entity {
+  id: ID!                     # featuresHash hex
+  featuresHash: Bytes!
+  manifestURI: String         # optional (IPFS/Arweave URI if available)
+  createdAt: BigInt
+}
+
+# Track updates to ScoreCalculator weights for auditing
+type ScoreCalculatorUpdate @entity {
+  id: ID!
+  updater: Bytes
+  weights: String             # serialized weights JSON string
+  timestamp: BigInt
+  txHash: Bytes
+}

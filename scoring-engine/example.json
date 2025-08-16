@@ -1,0 +1,11 @@
+{
+  "wallet": "0xAaBbCcDdEeFf00112233445566778899aAbBcCdD",
+  "on_time_repayment_rate": 0.95,
+  "default_count": 0,
+  "debt_utilization": 0.2,
+  "avg_balance_usd": 12000.5,
+  "staking_tenure_days": 200,
+  "gov_participation": 0.8,
+  "activity_consistency": 0.9,
+  "timestamp": 1723200000
+}
